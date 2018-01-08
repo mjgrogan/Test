@@ -67,7 +67,10 @@ public class SignIn extends AppCompatActivity {
 
             @Override
             protected String doInBackground(String... params) {
-                hashMap.put("email",params[0]);
+
+                /** REPLACED "email" with "username"*/
+
+                hashMap.put("username",params[0]);
                 hashMap.put("password",params[1]);
                 finalResult = httpParse.postRequest(hashMap, HttpURL);
                 return finalResult;

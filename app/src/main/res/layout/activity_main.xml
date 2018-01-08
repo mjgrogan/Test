@@ -1,94 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="quitessence.www.test.MainActivity">
     android:background="#FF5722"
-    android:padding="20dp">
+    android:padding="5dp"
+    tools:context="quitessence.www.test.MainActivity">
 
     <TextView
-        android:text="User Registration Form"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
+        android:layout_marginTop="150dp"
         android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#fff"/>
+        android:text="Successfully Logged In, Your Email =  "
+        android:textColor="#ffffff"
+        android:textSize="30dp" />
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView"
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextF_Name"
-        android:hint="Enter Your First Name"
+        android:id="@+id/EmailShow"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
         android:gravity="center"
-        />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editTextF_Name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextL_Name"
-        android:hint="Enter Your Last Name"
-        android:gravity="center"/>
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_below="@+id/editTextL_Name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextEmail"
-        android:hint="Enter Your Email"
-        android:gravity="center"/>
-
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#fbfefd"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/editTextEmail"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextPassword"
-        android:hint="Enter Your Password"
-        android:gravity="center"/>
+        android:layout_below="@+id/textView"/>
 
     <Button
-        android:text="Register"
+        android:layout_marginTop="30dp"
         android:layout_width="fill_parent"
+        android:layout_below="@+id/EmailShow"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/Submit" />
-
-    <Button
-        android:text="Already Register | Log In Here"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Submit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/Login" />
+        android:id="@+id/button"
+        android:text="Logout"/>
 
 </RelativeLayout>

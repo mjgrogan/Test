@@ -13,16 +13,15 @@ import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
 
-    Button register, log_in;
-    EditText First_Name, Last_Name, Email, Password ;
-    String F_Name_Holder, L_Name_Holder, EmailHolder, PasswordHolder;
+    Button register;
+    EditText Username_et, FamilyName_et, Password_et, ConfirmPassword_et, Mobile_et ;
+    String UsernameHolder, FamilyNameHolder, PasswordHolder, ConfirmPasswordHolder, MobileHolder;
     String finalResult ;
-    String HttpURL = "https://quitessence.com/familymApp/UserRegistration.php";
+    String HttpURL = "https://quitessence.com/familymApp/userregistration.php";
     Boolean CheckEditText ;
     ProgressDialog progressDialog;
     HashMap<String,String> hashMap = new HashMap<>();
     HttpParse httpParse = new HttpParse();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +29,12 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //Assign Id'S
-        First_Name = (EditText)findViewById(R.id.editTextF_Name);
-        Last_Name = (EditText)findViewById(R.id.editTextL_Name);
-        Email = (EditText)findViewById(R.id.editTextEmail);
-        Password = (EditText)findViewById(R.id.editTextPassword);
-
+        Username_et = (EditText)findViewById(R.id.etUsername);
+        FamilyName_et = (EditText)findViewById(R.id.etFamilyName);
+        Password_et = (EditText)findViewById(R.id.etPassword);
+        ConfirmPassword_et = (EditText)findViewById(R.id.etConfirmPassword);
+        Mobile_et = (EditText)findViewById(R.id.etMobile);
         register = (Button)findViewById(R.id.Submit);
-        log_in = (Button)findViewById(R.id.btnSignIn);
 
         //Adding Click Listener on button.
         register.setOnClickListener(new View.OnClickListener() {
@@ -45,13 +43,9 @@ public class Register extends AppCompatActivity {
 
                 // Checking whether EditText is Empty or Not
                 CheckEditTextIsEmptyOrNot();
-
                 if(CheckEditText){
-
                     // If EditText is not empty and CheckEditText = True then this block will execute.
-
-                    UserRegisterFunction(F_Name_Holder,L_Name_Holder, EmailHolder, PasswordHolder);
-
+                    UserRegisterFunction(UsernameHolder, FamilyNameHolder, PasswordHolder, MobileHolder);
                 }
                 else {
 
@@ -64,27 +58,19 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        log_in.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(Register.this,SignIn.class);
-                startActivity(intent);
-
-            }
-        });
 
     }
 
     public void CheckEditTextIsEmptyOrNot(){
 
-        F_Name_Holder = First_Name.getText().toString();
-        L_Name_Holder = Last_Name.getText().toString();
-        EmailHolder = Email.getText().toString();
-        PasswordHolder = Password.getText().toString();
+        UsernameHolder = Username_et.getText().toString();
+        FamilyNameHolder = FamilyName_et.getText().toString();
+        PasswordHolder = Password_et.getText().toString();
+        ConfirmPasswordHolder = ConfirmPassword_et.getText().toString();
+        MobileHolder = Mobile_et.getText().toString();
 
 
-        if(TextUtils.isEmpty(F_Name_Holder) || TextUtils.isEmpty(L_Name_Holder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder))
+        if(TextUtils.isEmpty(UsernameHolder) || TextUtils.isEmpty(FamilyNameHolder) || TextUtils.isEmpty(PasswordHolder) || TextUtils.isEmpty(MobileHolder))
         {
 
             CheckEditText = false;
@@ -97,7 +83,7 @@ public class Register extends AppCompatActivity {
 
     }
 
-    public void UserRegisterFunction(final String F_Name, final String L_Name, final String email, final String password){
+    public void UserRegisterFunction(final String username, final String familyname, final String password, final String mobile){
 
         class UserRegisterFunctionClass extends AsyncTask<String,Void,String> {
 
@@ -122,13 +108,13 @@ public class Register extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
 
-                hashMap.put("f_name",params[0]);
+                hashMap.put("username",params[0]);
 
-                hashMap.put("L_name",params[1]);
+                hashMap.put("familyname",params[1]);
 
-                hashMap.put("email",params[2]);
+                hashMap.put("password",params[2]);
 
-                hashMap.put("password",params[3]);
+                hashMap.put("mobile",params[3]);
 
                 finalResult = httpParse.postRequest(hashMap, HttpURL);
 
@@ -138,7 +124,7 @@ public class Register extends AppCompatActivity {
 
         UserRegisterFunctionClass userRegisterFunctionClass = new UserRegisterFunctionClass();
 
-        userRegisterFunctionClass.execute(F_Name,L_Name,email,password);
+        userRegisterFunctionClass.execute(username,familyname,password,mobile);
     }
 
 }

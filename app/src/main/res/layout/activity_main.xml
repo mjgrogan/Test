@@ -1,42 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF5722"
-    android:padding="5dp"
+    android:background="@android:color/black"
     tools:context="quitessence.www.test.MainActivity">
 
+    <ImageView
+        android:id="@+id/imgBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_bwfmapp_bnr" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Successfully Logged In, Your Email =  "
-        android:textColor="#ffffff"
-        android:textSize="30dp" />
+        android:text="Main"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:text=""
-        android:layout_width="wrap_content"
+        android:id="@+id/Family_IDShow"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txtRegister"
         android:layout_centerHorizontal="true"
-        android:id="@+id/EmailShow"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:text=""
         android:textColor="#ffffff"
         android:textSize="30dp"
-        android:gravity="center"
-        android:layout_below="@+id/textView"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgbtnFamilyMembers"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnPets"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgbtnPets"
+        app:srcCompat="@drawable/orngfamicon" />
+
+    <ImageButton
+        android:id="@+id/imgbtnPets"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBanner"
+        app:srcCompat="@drawable/orngpeticon" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLocations"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnPets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnPets"
+        app:layout_constraintTop_toTopOf="@+id/imgbtnPets"
+        app:srcCompat="@drawable/orngmapicon" />
 
     <Button
-        android:layout_marginTop="30dp"
-        android:layout_width="fill_parent"
-        android:layout_below="@+id/EmailShow"
-        android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:text="Logout"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Family_IDShow"
+        android:layout_marginBottom="16dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btnEmergency"
+        android:layout_width="190dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_red_btn"
+        android:text="EMERGENCY"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnPets" />
+
+</android.support.constraint.ConstraintLayout>

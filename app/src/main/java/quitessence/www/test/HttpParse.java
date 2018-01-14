@@ -29,43 +29,30 @@ public class HttpParse {
 
         try {
             url = new URL(HttpUrlHolder);
-
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
             httpURLConnection.setReadTimeout(14000);
-
             httpURLConnection.setConnectTimeout(14000);
-
             httpURLConnection.setRequestMethod("POST");
-
             httpURLConnection.setDoInput(true);
-
             httpURLConnection.setDoOutput(true);
 
             outputStream = httpURLConnection.getOutputStream();
-
             bufferedWriter = new BufferedWriter(
-
                     new OutputStreamWriter(outputStream, "UTF-8"));
 
             bufferedWriter.write(FinalDataParse(Data));
-
             bufferedWriter.flush();
-
             bufferedWriter.close();
-
             outputStream.close();
 
             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-
                 bufferedReader = new BufferedReader(
                         new InputStreamReader(
                                 httpURLConnection.getInputStream()
                         )
                 );
                 FinalHttpData = bufferedReader.readLine();
-            }
-            else {
+            } else {
                 FinalHttpData = "Something Went Wrong";
             }
         } catch (Exception e) {

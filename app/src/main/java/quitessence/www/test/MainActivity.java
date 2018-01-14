@@ -10,19 +10,19 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button LogOut;
-    TextView UsernameShow;
-    String UsernameHolder;
+    TextView UserFamily_IDShow;
+    String Family_IDHolder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         LogOut = (Button)findViewById(R.id.button);
-        UsernameShow = (TextView)findViewById(R.id.EmailShow);
+        UserFamily_IDShow = (TextView)findViewById(R.id.Family_IDShow);
 
         Intent intent = getIntent();
-        UsernameHolder = intent.getStringExtra(SignIn.UserUsername);
-        UsernameShow.setText(UsernameHolder);
+        Family_IDHolder = intent.getStringExtra(SignIn.UserFamily_ID);
+        UserFamily_IDShow.setText(Family_IDHolder);
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
